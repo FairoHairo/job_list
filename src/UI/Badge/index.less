@@ -1,0 +1,61 @@
+@import '../../style/index.less';
+
+.badge {
+  display: flex;
+  align-items: center;
+  background-color: @grey-200;
+  color: @primary-color;
+  cursor: pointer;
+  border-radius: @radii;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  min-height: 26px;
+
+  & > span {
+    padding: 0.25rem 1rem;
+  }
+
+  &:hover {
+    color: @grey-100;
+    background-color: @primary-color;
+  }
+
+  &&--light {
+    font-weight: @fw-bold;
+  }
+
+  &&--dark {
+    background-color: @grey-900;
+    color: @grey-100;
+  }
+
+  &&--primary {
+    background-color: @primary-color;
+    color: @grey-100;
+  }
+
+  &&--clearable {
+    cursor: default;
+
+    &:hover {
+      background-color: @grey-200;
+      color: @primary-color;
+    }
+  }
+
+  &-remover {
+    background-color: @primary-color;
+    color: @grey-100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    align-self: stretch;
+
+    &:hover {
+      background-color: @grey-900;
+    }
+  }
+}
