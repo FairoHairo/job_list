@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+
 const { cssLoaders } = require("./webpack-helpers");
+
 /** @type {import('webpack').Configuration} */
 module.exports = {
   mode: "development",
@@ -17,12 +20,19 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
   },
-  devtool: "inline-source-map",
+  devtool: "eval-cheap-module-source-map",
   devServer: {
     static: "./dist",
     hot: true
   },
-  plugins: [new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') }),
+    new CopyWebackPlugin({
+      patterns: [
+        { from: 'src/images', to: 'images'},
+      ]
+    })
+  ],
   module: {
     rules: [
       {

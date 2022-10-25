@@ -3,7 +3,7 @@ import './index.less'
 
 export type StackProps = {
   children: ReactElement | ReactElement[];
-  pos?: 'center' | 'space-beetween' | 'left' | 'right'
+  pos?: 'center' | 'space-between' | 'left' | 'right'
 }
 
 const Stack: FC<StackProps> = ({ pos= 'center', children, ...props }) => {

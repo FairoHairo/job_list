@@ -6,6 +6,7 @@
     "jsx": "react-jsx",
     "noImplicitAny": true,
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true
   }
 }
