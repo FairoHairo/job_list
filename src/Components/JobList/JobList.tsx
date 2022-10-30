@@ -1,31 +1,35 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { addFilter } from "../../store/filters/filters-actions"
+import { selectAllPositions } from "../../store/positions/position-selectors"
 import JobPosition from "./JobPosition"
 
 interface JobPositionProps {
-  a?:any
+  props?:any
 }
 
 const JobList: FC<JobPositionProps> = (props) => {
-  const test = [{
-    id: 2,
-    company: "Manage",
-    logo: "./images/manage.svg",
-    new: true,
-    featured: true,
-    position: "Fullstack Developer",
-    role: "Fullstack",
-    level: "Midweight",
-    postedAt: "1d ago",
-    contract: "Part Time",
-    location: "Remote",
-    languages: ["Python"],
-    tools: ["React"]
-  }]
+  const positions = useSelector(selectAllPositions)
+  const dispatch = useDispatch()
+
+  const onAddFilter = (filter: string) => {
+    dispatch(addFilter(filter))
+  } 
+
+  useEffect(() => {
+    console.log(3)
+  }, [])
 
   return (
     <div className="job-list__container">
-      <ul className="job__list">
-        {test.map((item, i) => <JobPosition key={`${item.id || 404}_${i}`} {...item} />)}
+      <ul className="job-list">
+        {positions.map((item, i) => (
+          <JobPosition
+            key={`${item.id || 404}_${i}`}
+            onAddFilter={onAddFilter}
+            {...item}
+          />
+        ))}
       </ul>
     </div>
   )

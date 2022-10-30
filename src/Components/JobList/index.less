@@ -3,20 +3,24 @@
 .job-list__container {
   padding: 1.5rem;
 }
-.job__list {
-  border-left-color: red;
-  border-left-width: 4px;
-  border-left-style: solid;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  box-shadow: @shadow;
-}
-.job-list__item {
+.job-list {
   display: flex;
-  justify-content: space-between;
-  min-height: 180px;
-}
+  flex-direction: column;
+  gap: 10px 0;
 
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    min-height: 180px;
+    padding: 1.4rem;
+    border-left-color: @primary-color;
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: @shadow;
+  }
+}
 .job-info {
   display: flex;
   gap: 1rem;

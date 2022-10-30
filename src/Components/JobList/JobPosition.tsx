@@ -14,6 +14,7 @@ interface JobListProps {
   postedAt?: string;
   contract?: string;
   location?: string;
+  onAddFilter: (filter: string) => void;
 }
 
 const JobPosiotion:FC<JobListProps> = ({
@@ -29,6 +30,7 @@ const JobPosiotion:FC<JobListProps> = ({
   contract,
   location,
   postedAt,
+  onAddFilter,
   ...props }) => {
   const badges = [role, level, ...tools, ...languages]
 
@@ -72,7 +74,14 @@ const JobPosiotion:FC<JobListProps> = ({
       </div>
       <Stack>
         {badges.length && badges.map((item, i) => {
-          return <Badge key={`${item}_${i}`}>{item}</Badge>
+          return (
+            <Badge
+              onClick={() => onAddFilter(item)}
+              key={`${item}_${i}`}
+            >
+              {item}
+            </Badge>
+          )
         })}
       </Stack>
     </li>
