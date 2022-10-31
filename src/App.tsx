@@ -4,7 +4,7 @@ import { FilterPanel } from "./Components/FilterPanel/FilterPanel"
 import { Header } from "./Components/Header/Header"
 import { JobList } from "./Components/JobList"
 
-import { addPositions } from "./store/positions"
+import addPositions from "./store/positions"
 import data from './mock/data.json'
 
 export const App = () => {

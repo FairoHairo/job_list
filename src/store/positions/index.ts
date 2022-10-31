@@ -1,3 +1,5 @@
 import { addPositions } from './position-actions'
+import { selectAllPositions, selectVisiblePositions } from './position-selectors'
 
-export { addPositions }
+export { selectAllPositions, selectVisiblePositions }
+export default addPositions
